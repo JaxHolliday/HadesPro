@@ -17,7 +17,10 @@ namespace HadesPro
         {
             var host = CreateHostBuilder(args).Build();
 
-            var dataservice = host.Services.CreateScope().ServiceProvider.GetRequiredService<SeedService>();
+            var dataservice = host.Services
+                .CreateScope()
+                .ServiceProvider
+                .GetRequiredService<SeedService>();
 
             await dataservice.ManageDataAsync();
 
