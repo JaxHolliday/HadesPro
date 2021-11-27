@@ -42,9 +42,12 @@ namespace HadesPro
             services.AddControllersWithViews();
 
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            
+            services.AddTransient<SeedService>();
 
-
-            services.AddScoped<ConnectionService>();
+            //services.AddScoped<ConnectionService>();
+            
+            //services.AddScoped<TMDBMovieService >();
 
         }
 
