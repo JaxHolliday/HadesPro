@@ -2,6 +2,7 @@ using HadesPro.Data;
 using HadesPro.Models;
 using HadesPro.Models.Settings;
 using HadesPro.Services;
+using HadesPro.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,18 +38,23 @@ namespace HadesPro
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDefaultIdentity(options => options.SignIn.RequireConfirmedAccount = true).AddRoles()
+            //    .AddEntityFrameworkStores();
+            services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
+
+            services.AddHttpClient();
 
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             
             services.AddTransient<SeedService>();
-
-            //services.AddScoped<ConnectionService>();
-            
-            //services.AddScoped<TMDBMovieService >();
-
+            services.AddScoped<IRemoteMovieService, TMDBMovieService>();
+            services.AddScoped<IDataMappingService, TMDBMappingService>();
+            services.AddSingleton<IImageService, BasicImageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
