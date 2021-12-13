@@ -102,7 +102,7 @@ namespace HadesPro.Controllers
             return View(movie);
         }
 
-        // GET: Temp/Edit/5
+        // GET: Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -118,7 +118,7 @@ namespace HadesPro.Controllers
             return View(movie);
         }
 
-        // POST: Temp/Edit/5
+        // POST: Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -164,7 +164,7 @@ namespace HadesPro.Controllers
             return View(movie);
         }
 
-        // GET: Temp/Delete/5
+        // GET: Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -182,7 +182,7 @@ namespace HadesPro.Controllers
             return View(movie);
         }
 
-        // POST: Temp/Delete/5
+        // POST: Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
