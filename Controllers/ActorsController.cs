@@ -21,6 +21,7 @@ namespace HadesPro.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
+            //feeding cast id of particular actor followed by mapping actor detail 
             var actor = await _tmdbMovieService.ActorDetailAsync(id);
             actor = _mappingService.MapActorDetail(actor);
             return View(actor);
