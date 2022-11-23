@@ -1,9 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>aspnet-HadesPro-7D82E773-D0E3-40F4-BDB9-9E9B874C5311</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+	<BaseOutputPath>bin</BaseOutputPath>
+	<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	  <InvariantGlobalization>true</InvariantGlobalization>	
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +18,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
+<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
