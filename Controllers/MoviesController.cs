@@ -63,7 +63,7 @@ namespace HadesPro.Controllers
 
             await AddToMovieCollection(movie.Id, _appSettings.HadesProSettings.DefaultCollection.Name);
 
-            return RedirectToAction("Inport");
+            return RedirectToAction("Import");
         }
 
         public async Task<IActionResult> Library()
